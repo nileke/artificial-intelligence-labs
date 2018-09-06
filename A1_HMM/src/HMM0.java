@@ -52,7 +52,7 @@ public class HMM0 {
         }*/
     }
 
-    public static void calculateNextO() {
+    private static void calculateNextO() {
         // (pi * A) * B
         double[][] a;
         double[][] res;
@@ -76,6 +76,7 @@ public class HMM0 {
         MatrixOperations.printMatrix(" ",res);
         */
 
+        assert res != null;
         System.out.print(res.length + " " + res[0].length);
         for (double[] row : res) {
             for (double c : row) {
