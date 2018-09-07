@@ -52,9 +52,9 @@ public class HMM1 {
     }
 
     public static void main(String[] args) throws FileNotFoundException {
-        // String filepath = "./resources/hmm2_01.in";
-        // Scanner sc = new Scanner(new File(filepath));
-        Scanner sc = new Scanner(System.in);
+        String filepath = "./resources/hmm2_01.in";
+        Scanner sc = new Scanner(new File(filepath));
+        //Scanner sc = new Scanner(System.in);
         int m;
         int n;
 

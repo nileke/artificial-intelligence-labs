@@ -38,7 +38,6 @@ public class HMM0 {
         String filepath = "./resources/sample_00.in";
         Scanner sc = new Scanner(new File(filepath));
         //Scanner sc = new Scanner(System.in);
-
         int x;
         int y;
 

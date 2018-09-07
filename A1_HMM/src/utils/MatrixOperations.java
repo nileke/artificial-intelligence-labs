@@ -6,9 +6,7 @@ public class MatrixOperations {
         int ACol = A[0].length;
         int BRow = B.length;
 
-        if(ACol != BRow ) {
-                throw new IllegalArgumentException("Incorrect matrix dimensions. Check your input");
-        }
+        if(ACol != BRow ) return null;
 
         int ARow = A.length;
         int BCol = B[0].length;
@@ -25,19 +23,17 @@ public class MatrixOperations {
     }
 
     public static double[] vectorElementMultiplication(double[] x, double[] y) {
-        int xLen = x.length;
-        int yLen = y.length;
 
-        if (xLen != yLen) {
-            throw new IllegalArgumentException("Vectors must have same length");
+        if (x.length != y.length) {
+            throw new IllegalArgumentException("Different length of input vectors.");
         }
-        double[] result = new double[xLen];
+        double[] result = new double[x.length];
 
-        for (int i=0; i < xLen; i++) {
+        for (int i=0; i < x.length; i++) {
             result[i] = x[i] * y[i];
         }
-
         return result;
+
     }
 
     // For debugging
@@ -47,7 +43,7 @@ public class MatrixOperations {
         }
         for (double[] m : matrix) {
             for (double var : m) {
-                System.out.print(var + " ");
+                System.out.print(var+ " ");
             }
             System.out.println();
         }
