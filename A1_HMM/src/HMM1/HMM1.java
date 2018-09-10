@@ -17,11 +17,8 @@ public class HMM1 {
 
     public HMM1() {
         double[][] resultMatrix = this.calculateEmissionSequence();
-        Matrices.printMatrix(resultMatrix);
         System.out.println(Matrices.elementSum(resultMatrix));
     }
-
-
 
     public double[][] calculateEmissionSequence() {
         int idx = emissions[0];
@@ -38,8 +35,8 @@ public class HMM1 {
 
     public static void main(String[] args) throws FileNotFoundException {
         String filepath = "./A1_HMM/resources/hmm2_01.in";
-        Scanner sc = new Scanner(new File(filepath)).useLocale(Locale.US);
-        //Scanner sc = new Scanner(System.in);
+        //Scanner sc = new Scanner(new File(filepath)).useLocale(Locale.US);
+        Scanner sc = new Scanner(System.in);
         int m;
         int n;
 

@@ -13,7 +13,7 @@ public class Matrices {
         ACol = A[0].length;
         BRow = B.length;
 
-        if(ACol != BRow ) {
+        if (ACol != BRow ) {
             throw new IllegalArgumentException("Incorrect matrix dimensions.");
         }
 
@@ -33,9 +33,9 @@ public class Matrices {
 
     public static double elementSum(double[][] matrix) {
         double result = 0;
-        for (int i=0; i < matrix.length; i++) {
-            for (int j=0; j < matrix[0].length; j++) {
-                result += matrix[i][j];
+        for (double[] m : matrix) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                result += m[j];
             }
         }
         return result;
@@ -54,7 +54,7 @@ public class Matrices {
 
     public static double[][] multiplyEntrywise(double[][] x, double[][] y) {
         if (x.length != y.length || x[0].length != y[0].length) {
-            throw new IllegalArgumentException("Different dimensions of input vectors.");
+            throw new IllegalArgumentException("Different dimensions of input matrices.");
         }
         double[][] result = new double[x.length][y[0].length];
 
