@@ -3,7 +3,7 @@ package HMM0;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-import utils.MatrixOperations;
+import utils.Matrices;
 
 public class HMM0 {
     private static double[][] A;
@@ -28,10 +28,10 @@ public class HMM0 {
     private double[][] calculateEmission(double[][] A, double[][] B, double[][] pi) {
         double[][] a;
 
-        a = MatrixOperations.multiply(pi, A);
+        a = Matrices.multiply(pi, A);
         if (a == null) return null;
 
-        return MatrixOperations.multiply(a, B);
+        return Matrices.multiply(a, B);
     }
 
     public static void main(String[] args) throws FileNotFoundException {
