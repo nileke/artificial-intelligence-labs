@@ -35,8 +35,8 @@ public class HMM1 {
 
     public static void main(String[] args) throws FileNotFoundException {
         String filepath = "./A1_HMM/resources/hmm2_01.in";
-        //Scanner sc = new Scanner(new File(filepath)).useLocale(Locale.US);
-        Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(new File(filepath)).useLocale(Locale.US);
+        //Scanner sc = new Scanner(System.in);
         int m;
         int n;
 
@@ -52,8 +52,8 @@ public class HMM1 {
         m = sc.nextInt();
         n = sc.nextInt();
         B = new double[m][n];
-        for (int i=0; i < n; i++) {
-            for (int j=0; j < m; j++) {
+        for (int i=0; i < m; i++) {
+            for (int j=0; j < n; j++) {
                 B[i][j] = sc.nextDouble();
             }
         }
@@ -74,7 +74,7 @@ public class HMM1 {
         }
 /*
         Matrices.printMatrix(A, "A matrix");
-        Matrices.printMatrix(B, "B Matrix");
+        Matrices.printMatrix(B, "B matrix");
         Matrices.printMatrix(pi, "pi vector");
         System.out.println(Arrays.toString(emissions));
         System.out.println("=======================");
