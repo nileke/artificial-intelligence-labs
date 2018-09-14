@@ -1,9 +1,10 @@
 package HMM0;
 
+import utils.Matrices;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-import utils.Matrices;
 
 public class HMM0 {
     private static double[][] A;
