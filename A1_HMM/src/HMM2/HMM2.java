@@ -4,7 +4,6 @@ import utils.Matrices;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class HMM2 {
@@ -15,9 +14,7 @@ public class HMM2 {
 
     public HMM2() {
         double[][] delta = estimateSequenceStateVector();
-        //delta = Matrices.transpose(delta);
 
-        Matrices.printMatrix(delta);
         int[] sequence = new int[delta.length];
         int idx;
         for (int i=delta.length-1; i >= 0; i--) {
@@ -43,45 +40,32 @@ public class HMM2 {
         double[][] b_i;
         double[][] delta_i = new double[pi.length][pi[0].length];
         double[][] deltaMatrix = new double[A.length][A[0].length];
-        double[][] resultMatrix = new double[A.length][A[0].length];
+        double[][] resultMatrix = new double[emissions.length][A[0].length];
         for (int i=0; i < emissions.length; i++) {
             b_i = Matrices.getColumn(B, emissions[i]);
 
             if (i == 0) {
+                // Get first delta vector
                 delta_i = Matrices.multiplyEntrywise(pi, b_i);
-                for (int m=0; m < A.length; m++) {
-                    for (int n=0; n < A[0].length; n++) {
-                        deltaMatrix[m][n] = delta_i[n][0];
+            } else {
+                // delta_i vector per row * b_i per col * a_ij
+                int idx = 0;
+                for (int m=0; m < deltaMatrix.length; m++) {
+                    for (int n=0; n < deltaMatrix[0].length; n++) {
+                        deltaMatrix[n][m] = A[n][m] * b_i[n][0] * delta_i[idx][0];
                     }
-                }
-                resultMatrix[i] = Matrices.transpose(delta_i)[0];
-            }
-            else {
-                // delta_i vector per row * b_i per col
-                int idx = -1;
-                for (int m=0; m < A.length; m++) {
                     idx += 1;
-                    for (int n=0; n < A[0].length; n++) {
-                        deltaMatrix[m][n] = b_i[idx][0] * delta_i[n][0];
-                    }
+                }
+
+                int x = 0;
+                for (double[] row : deltaMatrix) {
+                    delta_i[x][0] = findMaxInRow(row);
+                    x++;
                 }
             }
 
-            double[][] nextDeltaMatrix = Matrices.multiplyEntrywise(A, deltaMatrix);
-            // Matrices.printMatrix(deltaMatrix, "Delta Matrix");
-            // Matrices.printMatrix(nextDeltaMatrix, "Next Delta Matrix");
-
-            int x = 0;
-            for (double[] row : nextDeltaMatrix) {
-                delta_i[x][0] = findMaxInRow(row);
-                x++;
-            }
-
-            if (i != 0) {
-                resultMatrix[i] = Matrices.transpose(delta_i)[0];
-            }
-
-            Matrices.printMatrix(resultMatrix);
+            // Get the max in each row to create the new delta vector
+            resultMatrix[i] = Matrices.transpose(delta_i)[0];
         }
 
         return resultMatrix;
@@ -110,10 +94,10 @@ public class HMM2 {
         // Transposed A matrix
         m = sc.nextInt();
         n = sc.nextInt();
-        A = new double[n][m];
+        A = new double[m][n];
         for (int i=0; i < m; i++) {
             for (int j=0; j < n; j++) {
-                A[j][i] = sc.nextDouble();
+                A[i][j] = sc.nextDouble();
             }
         }
 
@@ -126,12 +110,13 @@ public class HMM2 {
             }
         }
 
+        // Transposed pi
         m = sc.nextInt();
         n = sc.nextInt();
         pi = new double[n][m];
-        for (int i=0; i < n; i++) {
-            for (int j=0; j < m; j++) {
-                pi[i][j] = sc.nextDouble();
+        for (int i=0; i < m; i++) {
+            for (int j=0; j < n; j++) {
+                pi[j][i] = sc.nextDouble();
             }
         }
 
@@ -145,7 +130,6 @@ public class HMM2 {
         Matrices.printMatrix(A, "A matrix");
         Matrices.printMatrix(B, "B matrix");
         Matrices.printMatrix(pi, "pi vector");
-        System.out.println(Arrays.toString(emissions));
         System.out.println("=======================");
 */
 
