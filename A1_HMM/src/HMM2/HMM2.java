@@ -1,11 +1,12 @@
 package HMM2;
 
+// Imports for prints
 import utils.Matrices;
+import java.util.Arrays;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-import java.util.Stack;
 
 public class HMM2 {
     private static double[][] A;
@@ -14,92 +15,69 @@ public class HMM2 {
     private static int[] emissions;
 
     public HMM2() {
-        double[][] delta = estimateSequenceStateVector();
-        //Matrices.printMatrix(delta);
-        int[] sequence = new int[delta.length];
-        int idx;
-        for (int i=delta.length-1; i >= 0; i--) {
-            idx = getStateSequence(delta[i]);
-            sequence[i] = idx;
-        }
-        Stack<Integer> res = getAnswer(delta);
+        int[] stateSequence = estimateSequenceStateVector();
 
-        for (int s : res) System.out.print(s + " ");
+        for (int s : stateSequence) System.out.print(s + " ");
         System.out.println();
     }
 
-    public int getStateSequence(double[] delta) {
-        // int[] result = new int[delta.length];
-        int idx = 0;
-        for (int i=1; i < delta.length; i++) {
-            idx = delta[i] > delta[idx] ? i : idx;
+
+    public int[] estimateSequenceStateVector() {
+        double[] b_t = B[emissions[0]]; // First observation
+        double[][] deltaMatrix = new double[A.length][emissions.length]; // Matrix for delta probabilities
+        int[][] sequenceMatrix = new int[A[0].length][emissions.length]; // matrix for states
+
+        // Get first delta vector
+        for (int i=0; i < A.length; i++) {
+            deltaMatrix[i][0] = pi[0][i] * b_t[i];
         }
 
-        return idx;
-    }
+        // Get delta vectors and states for t: 1-n
+        for (int t=1; t < emissions.length; t++) {
+            // Get observations at time t
+            b_t = B[emissions[t]];
 
-    public Stack<Integer> getAnswer(double[][] matrix) {
-        Stack<Integer> result = new Stack<>();
-        //int[] result = new int[matrix.length];
-        for (int row=0; row < matrix.length; row++) {
-            int idx = 0;
-            for (int col=0; col < matrix[0].length; col++) {
-                idx = matrix[idx][col] < matrix[row][col] ? col : idx;
-            }
-            result.push(idx);
-            //result[row] = idx;
-        }
-        return result;
-    }
-
-    public double[][] estimateSequenceStateVector() {
-        double[][] b_i;
-        double[][] delta_i;
-        double[][] deltaMatrix = new double[A.length][A[0].length];
-        double[][] deltaSequence = new double[emissions.length][A[0].length];
-        for (int i=0; i < emissions.length; i++) {
-            b_i = Matrices.getColumn(B, emissions[i]);
-
-            if (i == 0) {
-                // Get first delta vector
-                delta_i = Matrices.multiplyEntrywise(pi, b_i);
-            } else {
-                // previous delta_i vector per row * b_i per col * a_ij
-                int idx = 0;
-                delta_i = Matrices.getColumn(Matrices.transpose(deltaSequence), i-1);
-                for (int m=0; m < deltaMatrix.length; m++) {
-                    for (int n=0; n < deltaMatrix[0].length; n++) {
-                        deltaMatrix[m][n] = A[n][m] * b_i[idx][0] * delta_i[n][0];
+            // previous delta_i vector per row * b_t per col * a_nm
+            for (int m=0; m < A.length; m++) {
+                int stateMax = -1;
+                double probabilityMax = -1;
+                for (int n=0; n < A.length; n++) {
+                    double res = deltaMatrix[n][t-1] * b_t[m] * A[n][m];
+                    if (probabilityMax < res) {
+                        probabilityMax = res;
+                        stateMax = n;
                     }
-                    idx += 1;
                 }
-
-                int x = 0;
-                for (double[] row : deltaMatrix) {
-                    delta_i[x][0] = findMaxInRow(row);
-                    x++;
-                }
+                deltaMatrix[m][t] = probabilityMax;
+                sequenceMatrix[m][t] = stateMax;
             }
-
-            // Get the max in each row to create the new delta vector
-            deltaSequence[i] = Matrices.transpose(delta_i)[0];
         }
 
-        return deltaSequence;
-    }
-
-
-    public double findMaxInRow(double[] row) {
-        double max = 0;
-        for (double val : row) {
-            if (val > max) max = val;
+        // Look for the highest value at the last time step t
+        double probabilityMax = -1;
+        int stateMax = -1;
+        for (int m=0; m < A.length; m++) {
+            if (deltaMatrix[m][emissions.length-1] > probabilityMax) {
+                stateMax = m;
+                probabilityMax = deltaMatrix[m][emissions.length-1];
+            }
         }
-        return max;
+
+        // Get the state sequence
+        int[] sequence = new int[emissions.length];
+        sequence[emissions.length-1] = stateMax;
+        for (int i=emissions.length-1; i > 0; i--) {
+            sequence[i-1] = sequenceMatrix[sequence[i]][i];
+        }
+
+        return sequence;
     }
 
 
     public static void main(String[] args) throws FileNotFoundException {
         String filepath = "./A1_HMM/resources/hmm3_01.in";
+        String filepath2 = "./A1_HMM/resources/hmm3_02.in";
+        String filepath3 = "./A1_HMM/resources/hmm3_03.in";
         Scanner sc = new Scanner(new File(filepath));
         //Scanner sc = new Scanner(System.in);
 
@@ -115,22 +93,22 @@ public class HMM2 {
             }
         }
 
+        // Transposed B so that every column is a sub-array
         m = sc.nextInt();
         n = sc.nextInt();
-        B = new double[m][n];
+        B = new double[n][m];
         for (int i=0; i < m; i++) {
             for (int j=0; j < n; j++) {
-                B[i][j] = sc.nextDouble();
+                B[j][i] = sc.nextDouble();
             }
         }
 
-        // Transposed pi
         m = sc.nextInt();
         n = sc.nextInt();
-        pi = new double[n][m];
+        pi = new double[m][n];
         for (int i=0; i < m; i++) {
             for (int j=0; j < n; j++) {
-                pi[j][i] = sc.nextDouble();
+                pi[i][j] = sc.nextDouble();
             }
         }
 
