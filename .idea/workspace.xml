@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8668371-c265-4a52-a029-35969ef3891b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/A1_HMM/src/HMM1/HMM1.java" beforeDir="false" afterPath="$PROJECT_DIR$/A1_HMM/src/HMM1/HMM1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/A1_HMM/src/HMM2/HMM2.java" beforeDir="false" afterPath="$PROJECT_DIR$/A1_HMM/src/HMM2/HMM2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/A1_HMM/src/HMM3/HMM3.java" beforeDir="false" afterPath="$PROJECT_DIR$/A1_HMM/src/HMM3/HMM3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/A1_HMM/HMM1/HMM1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/A1_HMM/HMM1/HMM1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/A1_HMM/HMM3/HMM3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/A1_HMM/HMM3/HMM3.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,12 +29,12 @@
         <counts>
           <entry key="ans" value="20" />
           <entry key="in" value="350" />
-          <entry key="java" value="10925" />
+          <entry key="java" value="12061" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="10925" />
+          <entry key="JAVA" value="12061" />
           <entry key="PLAIN_TEXT" value="370" />
         </counts>
       </usages-collector>
@@ -69,20 +64,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/A1_HMM/src/HMM2/HMM2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="837">
-              <caret line="33" selection-start-line="33" selection-end-line="33" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/A1_HMM/src/HMM1/HMM1.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
+            <state relative-caret-position="81">
+              <caret line="83" selection-start-line="83" selection-end-line="118" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -98,8 +81,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/A1_HMM/src/HMM3/HMM3.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-279">
-              <caret line="66" column="18" selection-start-line="66" selection-start-column="18" selection-end-line="66" selection-end-column="18" />
+            <state relative-caret-position="141">
+              <caret line="116" column="23" selection-start-line="116" selection-start-column="23" selection-end-line="116" selection-end-column="23" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -178,40 +164,13 @@
             <path>
               <item name="artificial-intelligence-labs" type="b2602c69:ProjectViewProjectNode" />
               <item name="A1_HMM" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="artificial-intelligence-labs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="A1_HMM" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="artificial-intelligence-labs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="A1_HMM" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="HMM1" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="artificial-intelligence-labs" type="b2602c69:ProjectViewProjectNode" />
               <item name="A1_HMM" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="HMM2" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="artificial-intelligence-labs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="A1_HMM" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="HMM3" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="artificial-intelligence-labs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="A1_HMM" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="artificial-intelligence-labs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="prereq" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -223,7 +182,7 @@
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537531289274" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537533779835" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="create.test.in.the.same.root" value="true" />
@@ -457,14 +416,14 @@
       <window_info id="UI Designer" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.33188722" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.13991323" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.4295011" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39841986" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32930845" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.33958104" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3394794" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.3286334" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="9" visible="true" weight="0.3286334" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.3264642" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -593,16 +552,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/A1_HMM/src/HMM2/HMM2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="837">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/A1_HMM/resources/sample_00.in">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -640,10 +589,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/A1_HMM/src/HMM2/HMM2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="83" selection-start-line="83" selection-end-line="118" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/A1_HMM/src/HMM3/HMM3.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-279">
-          <caret line="66" column="18" selection-start-line="66" selection-start-column="18" selection-end-line="66" selection-end-column="18" />
+        <state relative-caret-position="141">
+          <caret line="116" column="23" selection-start-line="116" selection-start-column="23" selection-end-line="116" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
