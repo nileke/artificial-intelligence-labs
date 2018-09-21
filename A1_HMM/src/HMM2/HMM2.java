@@ -28,7 +28,7 @@ public class HMM2 {
         int[][] deltaIdxMatrix = new int[transitionMatrix.length][numOfEmissions]; // matrix for states
 
         // Get first delta vector
-        for (int i = 0; i < transitionMatrix.length; i++) {
+        for (int i=0; i < transitionMatrix.length; i++) {
             deltaMatrix[i][0] = pi[0][i] * o_t[i];
         }
 

@@ -2,23 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8668371-c265-4a52-a029-35969ef3891b" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/A1_HMM/resources/hmm4_01.ans" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/A1_HMM/resources/hmm4_01.in" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/A1_HMM/resources/hmm4_02.ans" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/A1_HMM/resources/hmm4_02.in" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/A1_HMM/resources/hmm4_03.ans" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/A1_HMM/resources/hmm4_03.in" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/A1_HMM/src/HMM3/HMM3.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/A1_HMM/HMM3/HMM3.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/A1_HMM/hmm4_01.ans" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/A1_HMM/hmm4_01.in" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/A1_HMM/hmm4_02.ans" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/A1_HMM/hmm4_02.in" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/A1_HMM/hmm4_03.ans" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/A1_HMM/hmm4_03.in" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/A1_HMM/src/HMM1/HMM1.java" beforeDir="false" afterPath="$PROJECT_DIR$/A1_HMM/src/HMM1/HMM1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/A1_HMM/src/HMM2/HMM2.java" beforeDir="false" afterPath="$PROJECT_DIR$/A1_HMM/src/HMM2/HMM2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/A1_HMM/HMM2/HMM2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/A1_HMM/HMM2/HMM2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/A1_HMM/src/HMM3/HMM3.java" beforeDir="false" afterPath="$PROJECT_DIR$/A1_HMM/src/HMM3/HMM3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/A1_HMM/HMM1/HMM1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/A1_HMM/HMM1/HMM1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/A1_HMM/HMM3/HMM3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/A1_HMM/HMM3/HMM3.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,40 +20,40 @@
     <session id="-703922084">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="6" />
+          <entry key="project.closed" value="7" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.10" value="2" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.16" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.open.time.9" value="6" />
-          <entry key="project.opened" value="12" />
+          <entry key="project.open.time.9" value="7" />
+          <entry key="project.opened" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="ans" value="20" />
           <entry key="in" value="350" />
-          <entry key="java" value="9208" />
+          <entry key="java" value="10925" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="9208" />
+          <entry key="JAVA" value="10925" />
           <entry key="PLAIN_TEXT" value="370" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="ans" value="3" />
-          <entry key="in" value="6" />
-          <entry key="java" value="10" />
+          <entry key="ans" value="5" />
+          <entry key="in" value="8" />
+          <entry key="java" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="10" />
-          <entry key="PLAIN_TEXT" value="9" />
+          <entry key="JAVA" value="13" />
+          <entry key="PLAIN_TEXT" value="13" />
         </counts>
       </usages-collector>
     </session>
@@ -77,11 +66,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/A1_HMM/src/HMM2/HMM2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1213">
-              <caret line="71" lean-forward="true" selection-start-line="71" selection-end-line="71" />
+            <state relative-caret-position="837">
+              <caret line="33" selection-start-line="33" selection-end-line="33" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -90,10 +79,36 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/A1_HMM/src/HMM1/HMM1.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="54">
+              <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/A1_HMM/resources/sample_00.in">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/A1_HMM/src/HMM3/HMM3.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            <state relative-caret-position="-279">
+              <caret line="66" column="18" selection-start-line="66" selection-start-column="18" selection-end-line="66" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/A1_HMM/src/utils/Matrices.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -125,7 +140,6 @@
         <option value="$PROJECT_DIR$/A1_HMM/resources/hmm2_01.in" />
         <option value="$PROJECT_DIR$/A1_HMM/src/utils/Matrix.java" />
         <option value="$PROJECT_DIR$/A1_HMM/src/utils/Matrices.java" />
-        <option value="$PROJECT_DIR$/A1_HMM/src/HMM1/HMM1.java" />
         <option value="$PROJECT_DIR$/A1_HMM/src/HMM0/HMM0.java" />
         <option value="$PROJECT_DIR$/A1_HMM/src/utils/HMM2.java" />
         <option value="$PROJECT_DIR$/A1_HMM/resources/hmm3_02.in" />
@@ -133,14 +147,15 @@
         <option value="$PROJECT_DIR$/A1_HMM/resources/hmm3_02.ans" />
         <option value="$PROJECT_DIR$/A1_HMM/resources/hmm3_03.ans" />
         <option value="$PROJECT_DIR$/A1_HMM/resources/hmm3_03.in" />
-        <option value="$PROJECT_DIR$/A1_HMM/src/HMM3/HMM3.java" />
         <option value="$PROJECT_DIR$/A1_HMM/src/HMM2/HMM2.java" />
+        <option value="$PROJECT_DIR$/A1_HMM/src/HMM1/HMM1.java" />
+        <option value="$PROJECT_DIR$/A1_HMM/src/HMM3/HMM3.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="19" />
-    <option name="y" value="43" />
+    <option name="y" value="22" />
     <option name="width" value="1882" />
     <option name="height" value="1039" />
   </component>
@@ -174,6 +189,24 @@
               <item name="artificial-intelligence-labs" type="b2602c69:ProjectViewProjectNode" />
               <item name="A1_HMM" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="HMM1" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="artificial-intelligence-labs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="A1_HMM" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="HMM2" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="artificial-intelligence-labs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="A1_HMM" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="HMM3" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="artificial-intelligence-labs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="A1_HMM" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -190,7 +223,7 @@
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537524197610" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537531289274" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="create.test.in.the.same.root" value="true" />
@@ -198,6 +231,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -219,7 +253,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.HMM2">
+  <component name="RunManager" selected="Application.HMM1">
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
       <module name="" />
       <option name="TESTING_TYPE" value="0" />
@@ -249,6 +283,20 @@
     </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HMM1 (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="HMM1.HMM1" />
+      <module name="A1_HMM1" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="HMM1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -362,12 +410,14 @@
       <item itemvalue="Application.HMM1" />
       <item itemvalue="Application.HMM2" />
       <item itemvalue="Application.HMM2 (1)" />
+      <item itemvalue="Application.HMM1 (1)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.HMM1" />
+        <item itemvalue="Application.HMM1 (1)" />
         <item itemvalue="Application.HMM2" />
         <item itemvalue="Application.HMM2 (1)" />
-        <item itemvalue="Application.HMM1" />
       </list>
     </recent_temporary>
   </component>
@@ -394,10 +444,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="19" y="43" width="1882" height="1039" extended-state="0" />
+    <frame x="19" y="22" width="1882" height="1039" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22603486" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2282135" />
       <window_info id="Structure" order="1" weight="0.24915825" />
       <window_info id="Designer" order="2" />
       <window_info id="Nl-Palette" order="3" />
@@ -407,15 +457,15 @@
       <window_info id="UI Designer" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.33188722" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.08568329" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.13991323" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39841986" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32930845" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.3340564" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.33958104" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.3286334" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32731378" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.3264642" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -491,13 +541,7 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/A1_HMM/resources/hmm2_01.ans">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/A1_HMM/resources/sample_00.ans">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/A1_HMM/resources/sample_00.in">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/A1_HMM/resources/asd.txt" />
@@ -506,23 +550,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/A1_HMM/src/utils/MatricesTest.java" />
     <entry file="file://$PROJECT_DIR$/A1_HMM/src/utils/Matrix.java" />
-    <entry file="file://$PROJECT_DIR$/A1_HMM/resources/hmm2_01.in">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="3" column="17" lean-forward="true" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/A1_HMM/src/HMM1/HMM1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/A1_HMM/src/HMM0/HMM0.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -544,23 +571,6 @@
           <caret column="11" selection-start-column="11" selection-end-column="11" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/A1_HMM/src/utils/Matrices.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/A1_HMM/src/HMM3/HMM3.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/A1_HMM/resources/hmm3_01.ans">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/A1_HMM/resources/hmm3_03.in">
       <provider selected="true" editor-type-id="text-editor">
@@ -585,11 +595,55 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/A1_HMM/src/HMM2/HMM2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1213">
-          <caret line="71" lean-forward="true" selection-start-line="71" selection-end-line="71" />
+        <state relative-caret-position="837">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/A1_HMM/resources/sample_00.in">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/A1_HMM/src/utils/Matrices.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/A1_HMM/resources/hmm2_01.ans">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/A1_HMM/resources/hmm3_01.ans">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/A1_HMM/resources/hmm2_01.in">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="3" column="17" lean-forward="true" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/A1_HMM/src/HMM1/HMM1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/A1_HMM/src/HMM3/HMM3.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-279">
+          <caret line="66" column="18" selection-start-line="66" selection-start-column="18" selection-end-line="66" selection-end-column="18" />
         </state>
       </provider>
     </entry>

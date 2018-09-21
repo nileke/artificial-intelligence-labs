@@ -1,6 +1,8 @@
 package HMM1;
 
+// imports for printing
 import utils.Matrices;
+import java.util.Arrays;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -15,22 +17,40 @@ public class HMM1 {
 
 
     public HMM1() {
-        double[][] resultMatrix = this.calculateEmissionSequence();
-        System.out.println(Matrices.elementSum(resultMatrix));
+        double result = this.alphaPass(A,B,pi,emissions);
+        System.out.println(result);
     }
 
-    public double[][] calculateEmissionSequence() {
+    public double alphaPass(double[][] transitionMatrix,
+                                double[][] observationMatrix,
+                                double[][] pi,
+                                int[] emissions) {
+
         int idx = emissions[0];
-        double[][] alpha = Matrices.multiplyEntrywise(Matrices.getColumn(B, idx), Matrices.transpose(pi));
-        double[][] c;
-        for (int i=1; i < emissions.length; i++) {
-            idx = emissions[i];
-            c = Matrices.multiply(Matrices.transpose(A), alpha);
-            alpha = Matrices.multiplyEntrywise(c, Matrices.getColumn(B, idx));
+        double[][] alpha = new double[transitionMatrix.length][emissions.length];
+        double[] alphaPass = new double[emissions.length];
+        double res = 0;
+        for (int i=0; i < transitionMatrix.length; i++) {
+            alpha[i][0] = observationMatrix[i][idx] * pi[0][i];
+            alphaPass[0] += alpha[i][0];
         }
 
-        return alpha;
+        for (int t=1; t < emissions.length; t++) {
+            idx = emissions[t];
+            for (int i=0; i < transitionMatrix.length; i++) {
+                for (int j=0; j < transitionMatrix.length; j++) {
+                    alpha[i][t] += transitionMatrix[j][i] * alpha[j][t-1];
+
+                }
+                alpha[i][t] *= observationMatrix[i][idx];
+                alphaPass[t] += alpha[i][t];
+            }
+
+        }
+
+        return alphaPass[emissions.length-1];
     }
+
 
     public static void main(String[] args) throws FileNotFoundException {
         String filepath = "./A1_HMM/resources/hmm2_01.in";
@@ -71,6 +91,7 @@ public class HMM1 {
         for (int i=0; i < n; i++) {
             emissions[i] = sc.nextInt();
         }
+
 /*
         Matrices.printMatrix(A, "A matrix");
         Matrices.printMatrix(B, "B matrix");
@@ -78,6 +99,7 @@ public class HMM1 {
         System.out.println(Arrays.toString(emissions));
         System.out.println("=======================");
 */
+
 
 
         new HMM1();
