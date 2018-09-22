@@ -10,11 +10,6 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class HMM3 {
-    double[][] initialTransitionMatrix;
-    double[][] initialObservationMatrix;
-    double[][] initialPi;
-    int[] emissions;
-
     double[][] estimatedTransitionMatrix;
     double[][] estimatedObservationMatrix;
     double[][] estimatedPi;
@@ -23,12 +18,36 @@ public class HMM3 {
                 double[][] observationMatrix,
                 double[][] pi,
                 int[] emissions) {
-        this.initialTransitionMatrix = transitionMatrix;
-        this.initialObservationMatrix = observationMatrix;
-        this.initialPi = pi;
-        this.emissions = emissions;
 
         this.compute(transitionMatrix, observationMatrix, pi, emissions);
+        System.out.println(this.toString());
+    }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        int tm = estimatedTransitionMatrix.length;
+        int tn = estimatedTransitionMatrix[0].length;
+
+        int om = estimatedObservationMatrix.length;
+        int on = estimatedObservationMatrix[0].length;
+
+        sb.append(tm).append(" ").append(tn);
+
+        for (int i=0; i < tm; i++) {
+            for (int j=0; j < tn; j++) {
+                sb.append(" ").append(this.estimatedTransitionMatrix[i][j]);
+            }
+        }
+        sb.append("\n");
+        sb.append(om).append(" ").append(on);
+
+        for (int i=0; i < tm; i++) {
+            for (int j=0; j < tn; j++) {
+                sb.append(" ").append(this.estimatedObservationMatrix[i][j]);
+            }
+        }
+
+        return sb.toString();
     }
 
     public void compute(double[][] transitionMatrix,
@@ -38,8 +57,10 @@ public class HMM3 {
 
         this.gammaPass(transitionMatrix, observationMatrix, pi, emissions);
 
+
         Matrices.printMatrix(this.estimatedTransitionMatrix, "Transition Matrix");
         Matrices.printMatrix(this.estimatedObservationMatrix, "Observation Matrix");
+
     }
 
     public double[][] alphaPass(double[][] transitionMatrix,
