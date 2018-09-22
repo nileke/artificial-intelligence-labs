@@ -1,10 +1,12 @@
 package HMM3;
 
 // import for printing
+
 import utils.Matrices;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class HMM3 {
@@ -12,6 +14,10 @@ public class HMM3 {
     double[][] initialObservationMatrix;
     double[][] initialPi;
     int[] emissions;
+
+    double[][] estimatedTransitionMatrix;
+    double[][] estimatedObservationMatrix;
+    double[][] estimatedPi;
 
     public HMM3(double[][] transitionMatrix,
                 double[][] observationMatrix,
@@ -22,6 +28,7 @@ public class HMM3 {
         this.initialPi = pi;
         this.emissions = emissions;
 
+        this.compute(transitionMatrix, observationMatrix, pi, emissions);
     }
 
     public void compute(double[][] transitionMatrix,
@@ -31,6 +38,8 @@ public class HMM3 {
 
         this.gammaPass(transitionMatrix, observationMatrix, pi, emissions);
 
+        Matrices.printMatrix(this.estimatedTransitionMatrix, "Transition Matrix");
+        Matrices.printMatrix(this.estimatedObservationMatrix, "Observation Matrix");
     }
 
     public double[][] alphaPass(double[][] transitionMatrix,
@@ -85,7 +94,7 @@ public class HMM3 {
             for (int i = 0; i < transitionMatrix.length; i++) {
                 double probabilityMax = -1;
                 for (int j=0; j < transitionMatrix.length; j++) {
-                    double res = deltaMatrix[j][t-1] * observationMatrix[i][t] * transitionMatrix[j][i];
+                    double res = deltaMatrix[j][t-1] * observationMatrix[i][emissions[t]] * transitionMatrix[j][i];
                     if (probabilityMax < res) {
                         probabilityMax = res;
                     }
@@ -105,10 +114,10 @@ public class HMM3 {
 
         double[][] gamma;
         double[][] diGamma;
-        double[][] tempDiGammaSum;
+        double[][] sumDiGamma;
 
         int numStates = transitionMatrix.length;
-        int numObservations = observationMatrix[0].length;
+        int numObservations = emissions.length;
 
         // Initialize lambda, gamma and diGamma
         double[][] alphaPass = alphaPass(transitionMatrix, observationMatrix, pi, emissions);
@@ -117,37 +126,50 @@ public class HMM3 {
         diGamma = new double[numStates][numStates];
 
         // Sum of all diGamma matrices
-        tempDiGammaSum = new double[numStates][numStates];
+        sumDiGamma = new double[numStates][numStates];
 
         int timesteps = emissions.length;
-
+        double denom;
         for (int t=0; t < timesteps-1; t++) {
             // Calculate the denominator for gamma and diGamma calculation
-            int denom = 0;
+            denom = 0;
             for (int i=0; i < numStates; i++) {
                 for (int j=0; j < numStates; j++) {
-                    denom += alphaPass[i][t] * transitionMatrix[i][j] * observationMatrix[j][t+1] * betaPass[j][t+1];
+                    denom += alphaPass[i][t]
+                            * transitionMatrix[i][j]
+                            * observationMatrix[j][emissions[t+1]]
+                            * betaPass[j][emissions[t+1]];
                 }
             }
 
             // Calculate gamma and diGamma
             for (int i=0; i < numStates; i++) {
                 for (int j=0; j < numStates; j++) {
+                    // Avoid dividing with zero
+                    if (denom == 0) {
+                        diGamma[i][j] = 0;
+                        continue;
+                    }
+
                     diGamma[i][j] = (
                             alphaPass[i][t]
                             * transitionMatrix[i][j]
-                            * observationMatrix[j][t+1]
+                            * observationMatrix[j][emissions[t+1]]
                             * betaPass[j][t+1]
                             ) / denom;
 
                     gamma[i][t] += diGamma[i][j];
-                    tempDiGammaSum[i][j] += diGamma[i][j];
+                    sumDiGamma[i][j] += diGamma[i][j];
                 }
             }
         }
+
+        this.estimatedTransitionMatrix = estimateTransitionMatrix(sumDiGamma, gamma, timesteps);
+        this.estimatedObservationMatrix = estimateObservationMatrix(gamma, emissions, observationMatrix);
+        this.estimatedPi = estimatePi(gamma);
     }
 
-    public double[][] reEstimatePi(double[][] gamma) {
+    public double[][] estimatePi(double[][] gamma) {
         double[][] result = new double[gamma.length][1];
         for (int i=0; i < gamma.length; i++) {
             result[i][0] = gamma[i][0];
@@ -155,34 +177,34 @@ public class HMM3 {
         return result;
     }
 
-    public double[][] reEstimateTransitionMatrix(double[][] diGammaSum, double[][] gamma, int timesteps) {
+    public double[][] estimateTransitionMatrix(double[][] diGammaSum, double[][] gamma, int timesteps) {
         double[][] result = new double[diGammaSum.length][diGammaSum.length];
-        int denom;
+        double sumGamma;
         for (int i=0; i < diGammaSum.length; i++) {
             for (int j=0; j < diGammaSum.length; j++) {
-                denom = 0;
+                sumGamma = 0;
                 for (int t=0; t < timesteps; t++) {
-                    denom += gamma[i][t];
+                    sumGamma += gamma[i][t];
                 }
-                result[i][j] = diGammaSum[i][j] / denom;
+                result[i][j] = diGammaSum[i][j] / sumGamma;
             }
         }
 
         return result;
     }
 
-    public double[][] reEstimateObservationMatrix(double[][] gamma, int timesteps) {
+    public double[][] estimateObservationMatrix(double[][] gamma, int[] emissions, double[][] observationMatrix) {
 
-        double[][] result = new double[gamma.length][gamma[0].length];
+        double[][] result = new double[observationMatrix.length][observationMatrix[0].length];
 
         double numer;
         double denom;
-        for (int i=0; i < gamma.length; i++) {
-            for (int j=0; j < gamma[0].length; j++) {
+        for (int i=0; i < result.length; i++) {
+            for (int j=0; j < result[0].length; j++) {
                 numer = 0;
                 denom = 0;
-                for (int t=0; t < timesteps; t++) {
-                    if (t == j) numer += gamma[i][t];
+                for (int t=0; t < emissions.length; t++) {
+                    if (emissions[t] == j) numer += gamma[i][t];
                     denom += gamma[i][t];
                 }
                 result[i][j] = numer / denom;
