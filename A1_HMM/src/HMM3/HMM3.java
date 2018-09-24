@@ -2,22 +2,31 @@ package HMM3;
 
 // import for printing
 
-import utils.Matrices;
+// import utils.Matrices;
+import utils.Kattio;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Arrays;
-import java.util.Scanner;
 
 public class HMM3 {
     double[][] estimatedTransitionMatrix;
     double[][] estimatedObservationMatrix;
     double[][] estimatedPi;
 
+    int M;
+    int N;
+    int T;
+
+    double[] c;
+
     public HMM3(double[][] transitionMatrix,
                 double[][] observationMatrix,
                 double[][] pi,
                 int[] emissions) {
+
+        this.N = transitionMatrix.length;
+        this.M = observationMatrix[0].length;
+        this.T = emissions.length;
 
         this.compute(transitionMatrix, observationMatrix, pi, emissions);
         System.out.println(this.toString());
@@ -41,8 +50,8 @@ public class HMM3 {
         sb.append("\n");
         sb.append(om).append(" ").append(on);
 
-        for (int i=0; i < tm; i++) {
-            for (int j=0; j < tn; j++) {
+        for (int i=0; i < om; i++) {
+            for (int j=0; j < on; j++) {
                 sb.append(" ").append(this.estimatedObservationMatrix[i][j]);
             }
         }
@@ -55,12 +64,27 @@ public class HMM3 {
                         double[][] pi,
                         int[] emissions) {
 
-        this.gammaPass(transitionMatrix, observationMatrix, pi, emissions);
+        int iter = 1;
+        double oldLogProb = -Double.MAX_VALUE;
+        int maxIterations = 1000;
 
+        double logProb = this.gammaPass(transitionMatrix, observationMatrix, pi, emissions);
+        while (true) {
+            if (iter < maxIterations && logProb >= oldLogProb) {
+                oldLogProb = logProb;
+                logProb = this.gammaPass(this.estimatedTransitionMatrix, this.estimatedObservationMatrix, this.estimatedPi, emissions);
+            } else {
+                break;
+            }
+            iter++;
+        }
+
+/*
+        System.out.println("Number of iterations: " + iter);
 
         Matrices.printMatrix(this.estimatedTransitionMatrix, "Transition Matrix");
         Matrices.printMatrix(this.estimatedObservationMatrix, "Observation Matrix");
-
+*/
     }
 
     public double[][] alphaPass(double[][] transitionMatrix,
@@ -69,26 +93,36 @@ public class HMM3 {
                                 int[] emissions) {
 
         int idx = emissions[0];
-        double[][] alpha = new double[transitionMatrix.length][emissions.length];
-        double[] alphaPass = new double[emissions.length];
+        double[][] alpha = new double[N][T];
+        c = new double[T];
 
         // Get first alpha and alphaPass
-        for (int i=0; i < transitionMatrix.length; i++) {
+        for (int i=0; i < N; i++) {
             alpha[i][0] = observationMatrix[i][idx] * pi[0][i];
-            alphaPass[0] += alpha[i][0];
+            c[0] += alpha[i][0];
+        }
+
+        c[0] = 1/c[0];
+        for (int i=0; i < N; i++) {
+            alpha[i][0] *= c[0];
         }
 
         // Get alpha matrix and alphaPass for time t: 1-k
-        for (int t=1; t < emissions.length; t++) {
-            idx = emissions[t];
-            for (int i=0; i < transitionMatrix.length; i++) {
-                for (int j=0; j < transitionMatrix.length; j++) {
+        for (int t=1; t < T; t++) {
+            c[t] = 0;
+            for (int i=0; i < N; i++) {
+                alpha[i][t] = 0;
+                for (int j=0; j < N; j++) {
                     alpha[i][t] += transitionMatrix[j][i] * alpha[j][t-1];
                 }
-                alpha[i][t] *= observationMatrix[i][idx];
-                alphaPass[t] += alpha[i][t];
+                alpha[i][t] *= observationMatrix[i][emissions[t]];
+                c[t] += alpha[i][t];
             }
 
+            c[t] = 1/c[t];
+            for (int i=0; i < N; i++) {
+                alpha[i][t] *= c[t];
+            }
         }
 
         return alpha;
@@ -100,35 +134,30 @@ public class HMM3 {
                          double[][] pi,
                          int[] emissions) {
 
-        int numOfEmissions = emissions.length;
-        double[][] deltaMatrix = new double[transitionMatrix.length][numOfEmissions]; // Matrix for delta probabilities
+        double[][] deltaMatrix = new double[N][T]; // Matrix for delta probabilities
 
         // Get first delta vector
         for (int i=0; i < transitionMatrix.length; i++) {
-            deltaMatrix[i][0] = pi[0][i] * observationMatrix[i][0];
+            deltaMatrix[i][T-1] = c[T-1];
         }
 
         // Get delta vectors and states for t: 1-n
-        for (int t=1; t < numOfEmissions; t++) {
+        for (int t=T-2; t >= 0; t--) {
             // previous delta_i vector per row * o_t per col * a_ji
             // then assign max value to the time step vector
-            for (int i = 0; i < transitionMatrix.length; i++) {
-                double probabilityMax = -1;
-                for (int j=0; j < transitionMatrix.length; j++) {
-                    double res = deltaMatrix[j][t-1] * observationMatrix[i][emissions[t]] * transitionMatrix[j][i];
-                    if (probabilityMax < res) {
-                        probabilityMax = res;
-                    }
+            for (int i = 0; i < N; i++) {
+                deltaMatrix[i][t] = 0;
+                for (int j=0; j < N; j++) {
+                    deltaMatrix[i][t] += deltaMatrix[j][t+1] * observationMatrix[j][emissions[t+1]] * transitionMatrix[i][j];
                 }
-                deltaMatrix[i][t] = probabilityMax;
+                deltaMatrix[i][t] *= c[t];
             }
         }
 
         return deltaMatrix;
-
     }
 
-    public void gammaPass(double[][] transitionMatrix,
+    public double gammaPass(double[][] transitionMatrix,
                           double[][] observationMatrix,
                           double[][] pi,
                           int[] emissions) {
@@ -137,74 +166,79 @@ public class HMM3 {
         double[][] diGamma;
         double[][] sumDiGamma;
 
-        int numStates = transitionMatrix.length;
-        int numObservations = emissions.length;
-
         // Initialize lambda, gamma and diGamma
-        double[][] alphaPass = alphaPass(transitionMatrix, observationMatrix, pi, emissions);
-        double[][] betaPass = betaPass(transitionMatrix, observationMatrix, pi, emissions);
-        gamma = new double[numStates][numObservations];
-        diGamma = new double[numStates][numStates];
+        double[][] alpha = alphaPass(transitionMatrix, observationMatrix, pi, emissions);
+        double[][] beta = betaPass(transitionMatrix, observationMatrix, pi, emissions);
+        gamma = new double[N][T];
+        diGamma = new double[N][N];
 
         // Sum of all diGamma matrices
-        sumDiGamma = new double[numStates][numStates];
+        sumDiGamma = new double[N][N];
+        double logProb = this.c[0];
 
-        int timesteps = emissions.length;
         double denom;
-        for (int t=0; t < timesteps-1; t++) {
+        for (int t=0; t < T-1; t++) {
             // Calculate the denominator for gamma and diGamma calculation
             denom = 0;
-            for (int i=0; i < numStates; i++) {
-                for (int j=0; j < numStates; j++) {
-                    denom += alphaPass[i][t]
+            for (int i=0; i < N; i++) {
+                for (int j=0; j < N; j++) {
+                    denom += alpha[i][t]
                             * transitionMatrix[i][j]
                             * observationMatrix[j][emissions[t+1]]
-                            * betaPass[j][emissions[t+1]];
+                            * beta[j][t+1];
                 }
             }
 
             // Calculate gamma and diGamma
-            for (int i=0; i < numStates; i++) {
-                for (int j=0; j < numStates; j++) {
-                    // Avoid dividing with zero
-                    if (denom == 0) {
-                        diGamma[i][j] = 0;
-                        continue;
-                    }
-
+            for (int i=0; i < N; i++) {
+                gamma[i][t] = 0;
+                for (int j=0; j < N; j++) {
                     diGamma[i][j] = (
-                            alphaPass[i][t]
+                            alpha[i][t]
                             * transitionMatrix[i][j]
                             * observationMatrix[j][emissions[t+1]]
-                            * betaPass[j][t+1]
+                            * beta[j][t+1]
                             ) / denom;
 
                     gamma[i][t] += diGamma[i][j];
                     sumDiGamma[i][j] += diGamma[i][j];
                 }
             }
+
+            logProb += Math.log(this.c[t+1]);
         }
 
-        this.estimatedTransitionMatrix = estimateTransitionMatrix(sumDiGamma, gamma, timesteps);
+        denom = 0;
+        for (int i=0; i < N; i++) {
+            denom += alpha[i][T-1];
+        }
+        for (int i=0; i < N; i++) {
+            gamma[i][T-1] = alpha[i][T-1] / denom;
+        }
+
+
+        this.estimatedTransitionMatrix = estimateTransitionMatrix(sumDiGamma, gamma);
         this.estimatedObservationMatrix = estimateObservationMatrix(gamma, emissions, observationMatrix);
         this.estimatedPi = estimatePi(gamma);
+
+        return -logProb;
     }
 
     public double[][] estimatePi(double[][] gamma) {
-        double[][] result = new double[gamma.length][1];
-        for (int i=0; i < gamma.length; i++) {
-            result[i][0] = gamma[i][0];
+        double[][] result = new double[1][N];
+        for (int i=0; i < N; i++) {
+            result[0][i] = gamma[i][0];
         }
         return result;
     }
 
-    public double[][] estimateTransitionMatrix(double[][] diGammaSum, double[][] gamma, int timesteps) {
-        double[][] result = new double[diGammaSum.length][diGammaSum.length];
+    public double[][] estimateTransitionMatrix(double[][] diGammaSum, double[][] gamma) {
+        double[][] result = new double[N][N];
         double sumGamma;
-        for (int i=0; i < diGammaSum.length; i++) {
-            for (int j=0; j < diGammaSum.length; j++) {
+        for (int i=0; i < N; i++) {
+            for (int j=0; j < N; j++) {
                 sumGamma = 0;
-                for (int t=0; t < timesteps; t++) {
+                for (int t=0; t < T-1; t++) {
                     sumGamma += gamma[i][t];
                 }
                 result[i][j] = diGammaSum[i][j] / sumGamma;
@@ -220,11 +254,11 @@ public class HMM3 {
 
         double numer;
         double denom;
-        for (int i=0; i < result.length; i++) {
-            for (int j=0; j < result[0].length; j++) {
+        for (int i=0; i < N; i++) {
+            for (int j=0; j < M; j++) {
                 numer = 0;
                 denom = 0;
-                for (int t=0; t < emissions.length; t++) {
+                for (int t=0; t < T; t++) {
                     if (emissions[t] == j) numer += gamma[i][t];
                     denom += gamma[i][t];
                 }
@@ -235,10 +269,13 @@ public class HMM3 {
     }
 
     public static void main(String[] args) throws FileNotFoundException {
+        /*
         String filepath1 = "./A1_HMM/resources/hmm4_01.in";
         String filepath2 = "./A1_HMM/resources/hmm4_02.in";
         String filepath3 = "./A1_HMM/resources/hmm4_03.in";
-        Scanner sc = new Scanner(new File(filepath1));
+        Scanner sc = new Scanner(new File(filepath2));
+        */
+        Kattio sc = new Kattio(System.in);
 
         double[][] transitionMatrix;
         double[][] observationMatrix;
@@ -248,37 +285,37 @@ public class HMM3 {
         int m;
         int n;
 
-        m = sc.nextInt();
-        n = sc.nextInt();
+        m = sc.getInt();
+        n = sc.getInt();
         transitionMatrix = new double[m][n];
         for (int i=0; i < m; i++) {
             for (int j=0; j < n; j++) {
-                transitionMatrix[i][j] = sc.nextDouble();
+                transitionMatrix[i][j] = sc.getDouble();
             }
         }
 
-        m = sc.nextInt();
-        n = sc.nextInt();
+        m = sc.getInt();
+        n = sc.getInt();
         observationMatrix = new double[m][n];
         for (int i=0; i < m; i++) {
             for (int j=0; j < n; j++) {
-                observationMatrix[i][j] = sc.nextDouble();
+                observationMatrix[i][j] = sc.getDouble();
             }
         }
 
-        m = sc.nextInt();
-        n = sc.nextInt();
+        m = sc.getInt();
+        n = sc.getInt();
         pi = new double[m][n];
         for (int i=0; i < m; i++) {
             for (int j=0; j < n; j++) {
-                pi[i][j] = sc.nextDouble();
+                pi[i][j] = sc.getDouble();
             }
         }
 
-        n = sc.nextInt();
+        n = sc.getInt();
         emissions = new int[n];
         for (int i=0; i < n; i++) {
-            emissions[i] = sc.nextInt();
+            emissions[i] = sc.getInt();
         }
 
         new HMM3(transitionMatrix, observationMatrix, pi, emissions);
