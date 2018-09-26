@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8668371-c265-4a52-a029-35969ef3891b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/A1_HMM/.gitignore" beforeDir="false" />
-    </list>
     <ignored path="$PROJECT_DIR$/out/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,14 +24,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="ans" value="20" />
-          <entry key="gitignore" value="15" />
+          <entry key="dummy" value="15" />
           <entry key="in" value="350" />
-          <entry key="java" value="9208" />
+          <entry key="java" value="20073" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="9208" />
+          <entry key="JAVA" value="20073" />
           <entry key="PLAIN_TEXT" value="385" />
         </counts>
       </usages-collector>
@@ -43,16 +39,14 @@
         <counts>
           <entry key="ans" value="3" />
           <entry key="gitignore" value="1" />
-          <entry key="in" value="6" />
-          <entry key="java" value="10" />
+          <entry key="in" value="9" />
+          <entry key="java" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="10" />
-          <entry key="PLAIN_TEXT" value="10" />
-        </counts>
-      </usages-collector>
+          <entry key="JAVA" value="17" />
+          <entry key="PLAIN_TEXT" value="16" />
     </session>
   </component>
   <component name="FileColors">
@@ -66,8 +60,42 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/A1_HMM/src/HMM3/HMM3.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+            <state relative-caret-position="162">
+              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/A1_HMM/src/HMM3/BaumWelch.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="111">
+              <caret line="197" column="31" selection-start-line="197" selection-start-column="31" selection-end-line="197" selection-end-column="31" />
+              <folding>
+                <element signature="method#toString#0;class#BaumWelch#0" />
+                <element signature="method#setAlphaPass#0;class#BaumWelch#0" />
+                <element signature="method#setAlphaPass#1;class#BaumWelch#0" />
+                <element signature="method#setAlphaPass#1;class#BaumWelch#0" />
+                <element signature="method#setBetaPass#0;class#BaumWelch#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/A1_HMM/src/utils/Kattio.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="38" column="7" selection-start-line="38" selection-start-column="7" selection-end-line="38" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/A1_HMM/resources/hmm4_01.ans">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="101" selection-start-column="101" selection-end-column="101" />
             </state>
           </provider>
         </entry>
@@ -94,7 +122,20 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>mul</find>
+      <find>int</find>
+      <find>gamma</find>
+      <find>T;</find>
+      <find>nextInt</find>
+      <find>nextDouble</find>
+      <find>scaleFactor</find>
+      <find>deltaMatrix</find>
     </findStrings>
+    <replaceStrings>
+      <replace>getInt</replace>
+      <replace>getDouble</replace>
+      <replace>scaleVector</replace>
+      <replace>beta</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -116,16 +157,19 @@
         <option value="$PROJECT_DIR$/A1_HMM/resources/hmm3_02.ans" />
         <option value="$PROJECT_DIR$/A1_HMM/resources/hmm3_03.ans" />
         <option value="$PROJECT_DIR$/A1_HMM/resources/hmm3_03.in" />
-        <option value="$PROJECT_DIR$/A1_HMM/src/HMM3/HMM3.java" />
         <option value="$PROJECT_DIR$/A1_HMM/src/HMM2/HMM2.java" />
-        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/A1_HMM/src/HMM1/HMM1.java" />
+        <option value="$PROJECT_DIR$/A1_HMM/src/utils/Kattio.java" />
+        <option value="$PROJECT_DIR$/A1_HMM/src/HMM3/AlphaPass.java" />
+        <option value="$PROJECT_DIR$/A1_HMM/src/HMM3/HMM3.java" />
+        <option value="$PROJECT_DIR$/A1_HMM/src/HMM3/BaumWelch.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="19" />
-    <option name="y" value="43" />
-    <option name="width" value="1882" />
+    <option name="x" value="964" />
+    <option name="y" value="22" />
+    <option name="width" value="937" />
     <option name="height" value="1039" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -148,12 +192,15 @@
             </path>
             <path>
               <item name="artificial-intelligence-labs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="prereq" type="462c0819:PsiDirectoryNode" />
+              <item name="A1_HMM" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="HMM3" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="artificial-intelligence-labs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="prereq" type="462c0819:PsiDirectoryNode" />
-              <item name=".idea" type="462c0819:PsiDirectoryNode" />
+              <item name="A1_HMM" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -168,7 +215,7 @@
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537524197610" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537974708487" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="create.test.in.the.same.root" value="true" />
@@ -375,7 +422,7 @@
     <frame x="19" y="22" width="1882" height="1039" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.11764706" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2369281" />
       <window_info id="Structure" order="1" weight="0.24915825" />
       <window_info id="Designer" order="2" />
       <window_info id="Nl-Palette" order="3" />
@@ -390,7 +437,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32930845" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.3394794" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.3394794" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.3286334" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32731378" />
@@ -530,7 +577,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/A1_HMM/src/HMM3/HMM3.java">
+    <entry file="file://$PROJECT_DIR$/A1_HMM/src/utils/Matrices.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
           <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
@@ -554,24 +601,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/A1_HMM/resources/hmm3_01.in">
+    <entry file="file://$PROJECT_DIR$/A1_HMM/src/utils/Kattio.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="38" column="7" selection-start-line="38" selection-start-column="7" selection-end-line="38" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/A1_HMM/src/HMM0/HMM0.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="24">
           <caret line="1" column="39" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/A1_HMM/src/HMM2/HMM2.java">
+    <entry file="file://$PROJECT_DIR$/A1_HMM/resources/sample_00.in">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/A1_HMM/src/HMM3/HMM3.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1213">
-          <caret line="71" lean-forward="true" selection-start-line="71" selection-end-line="71" />
+        <state relative-caret-position="162">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/A1_HMM/src/HMM3/BaumWelch.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
+        <state relative-caret-position="111">
+          <caret line="197" column="31" selection-start-line="197" selection-start-column="31" selection-end-line="197" selection-end-column="31" />
+          <folding>
+            <element signature="method#toString#0;class#BaumWelch#0" />
+            <element signature="method#setAlphaPass#0;class#BaumWelch#0" />
+            <element signature="method#setAlphaPass#1;class#BaumWelch#0" />
+            <element signature="method#setAlphaPass#1;class#BaumWelch#0" />
+            <element signature="method#setBetaPass#0;class#BaumWelch#0" />
+          </folding>
         </state>
       </provider>
     </entry>
