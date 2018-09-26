@@ -69,8 +69,8 @@ public class HMM3 {
         m = sc.getInt();
         n = sc.getInt();
         transitionMatrix = new double[m][n];
-        for (int i=0; i < m; i++) {
-            for (int j=0; j < n; j++) {
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
                 transitionMatrix[i][j] = sc.getDouble();
             }
         }
@@ -78,8 +78,8 @@ public class HMM3 {
         m = sc.getInt();
         n = sc.getInt();
         observationMatrix = new double[m][n];
-        for (int i=0; i < m; i++) {
-            for (int j=0; j < n; j++) {
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
                 observationMatrix[i][j] = sc.getDouble();
             }
         }
@@ -87,13 +87,19 @@ public class HMM3 {
         m = sc.getInt();
         n = sc.getInt();
         pi = new double[m][n];
-        for (int i=0; i < m; i++) {
-            for (int j=0; j < n; j++) {
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
                 pi[i][j] = sc.getDouble();
             }
         }
 
-    public static void main(String[] args) {
+        n = sc.getInt();
+        emissions = new int[n];
+        for (int i=0; i < n; i++) {
+            emissions[i] = sc.getInt();
+        }
 
+
+        new HMM3(transitionMatrix, observationMatrix, pi, emissions);
     }
 }
