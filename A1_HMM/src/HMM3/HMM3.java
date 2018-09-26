@@ -1,10 +1,9 @@
 package HMM3;
 
-
-
 import utils.Kattio;
 
-import java.io.*;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 
 public class HMM3 {
 
