@@ -40,7 +40,7 @@ public class BaumWelch {
     }
 
     public double[][] setBetaPass() {
-        if (this.A == null || this.B == null || this.pi == null || this.emissions == null) {
+        if (this.A == null || this.B == null || this.scaleVector == null || this.emissions == null) {
             throw new IllegalArgumentException("Missing class variables.");
         }
         return setBetaPass(this.A, this.B, this.emissions);
@@ -133,7 +133,7 @@ public class BaumWelch {
         this.diGamma = new double[this.N][this.N];
 
         // Sum of all diGamma matrices
-        double logProb = 0 - this.scaleVector[0];
+        double logProb = -Math.log(this.scaleVector[0]);
 
         double denom;
         for (int t=0; t < T-1; t++) {
@@ -153,6 +153,10 @@ public class BaumWelch {
             for (int i=0; i < N; i++) {
                 this.gamma[i][t] = 0;
                 for (int j=0; j < N; j++) {
+                    if (denom == 0) {
+                        this.alpha[i][t] = 0;
+                        continue;
+                    }
                     res = (
                             this.alpha[i][t]
                                     * transitionMatrix[i][j]
@@ -174,6 +178,10 @@ public class BaumWelch {
             denom += this.alpha[i][T-1];
         }
         for (int i=0; i < N; i++) {
+            if (denom == 0) {
+                this.gamma[i][T-1] = 0;
+                continue;
+            }
             this.gamma[i][T-1] = this.alpha[i][T-1] / denom;
         }
 
@@ -202,6 +210,10 @@ public class BaumWelch {
                 for (int t=0; t < T-1; t++) {
                     sumGamma += gamma[i][t];
                 }
+                if (sumGamma == 0) {
+                    result[i][j] = 0;
+                    continue;
+                }
                 result[i][j] = diGamma[i][j] / sumGamma;
             }
         }
@@ -222,6 +234,10 @@ public class BaumWelch {
                 for (int t=0; t < T; t++) {
                     if (emissions[t] == j) numer += gamma[i][t];
                     denom += gamma[i][t];
+                }
+                if (denom == 0) {
+                    result[i][j] = 0;
+                    continue;
                 }
                 result[i][j] = numer / denom;
             }
@@ -254,5 +270,17 @@ public class BaumWelch {
         }
 
         return sb.toString();
+    }
+
+    public double[][] getA() {
+        return A;
+    }
+
+    public double[][] getB() {
+        return B;
+    }
+
+    public double[][] getPi() {
+        return pi;
     }
 }

@@ -2,6 +2,8 @@ package C;
 
 import HMM3.BaumWelch;
 
+import java.util.Arrays;
+
 public class TrainHMM {
 
     public TrainHMM(double[][] transitionMatrix, double[][] observationMatrix, double[][] pi, int[] emissions) {
@@ -15,7 +17,7 @@ public class TrainHMM {
 
         double oldLogProb = -Integer.MAX_VALUE;
 
-        int maxIterations = 1000;
+        int maxIterations = 100000;
         int iter = 0;
         double logProb = bw.setGammaPass();
         while (true) {
@@ -30,6 +32,10 @@ public class TrainHMM {
 
         System.out.println("Number of iterations: " + iter);
 
-        System.out.print(bw.toString());
+
+        System.out.println(bw.toString());
+        System.out.println("1 " + "3 " + Arrays.toString(bw.getPi()[0]).replace("[", "")
+                        .replace("]", "")
+                        .replace(",",""));
     }
 }

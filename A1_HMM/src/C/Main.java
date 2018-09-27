@@ -12,8 +12,9 @@ public class Main {
         String filepath1 = "./A1_HMM/resources/hmm_c_N1000.in";
         String filepath2 = "./A1_HMM/resources/hmm_c_N10000.in";
         String fileInit = "./A1_HMM/resources/hmm_c_init.in";
+        String fileInit8 = "./A1_HMM/resources/hmm_c_init_8.in";
 
-        Kattio sc = new Kattio(new FileInputStream(fileInit));
+        Kattio sc = new Kattio(new FileInputStream(fileInit8));
 
 
         double[][] transitionMatrix;
@@ -54,7 +55,7 @@ public class Main {
         sc = new Kattio(new FileInputStream(filepath2));
 
         n = sc.getInt();
-        n = 20;
+        n = 10000;
         emissions = new int[n];
         for (int i=0; i < n; i++) {
             emissions[i] = sc.getInt();
