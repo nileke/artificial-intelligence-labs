@@ -1,10 +1,6 @@
 package C;
 
 import HMM3.BaumWelch;
-import utils.Kattio;
-
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 
 public class TrainHMM {
 
