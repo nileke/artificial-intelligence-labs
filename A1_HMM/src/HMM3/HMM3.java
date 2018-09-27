@@ -23,7 +23,7 @@ public class HMM3 {
                         int[] emissions) {
 
         int iter = 1;
-        double oldLogProb = -Double.MAX_VALUE;
+        double oldLogProb = -Integer.MAX_VALUE;
         int maxIterations = 1000;
 
         //double logProb = this.gammaPass(transitionMatrix, observationMatrix, pi, emissions);
@@ -39,6 +39,7 @@ public class HMM3 {
             iter++;
         }
 
+        System.out.println("Number of iterations: " + iter);
         return bw.toString();
 /*
         System.out.println("Number of iterations: " + iter);
