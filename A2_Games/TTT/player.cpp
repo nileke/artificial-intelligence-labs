@@ -184,7 +184,7 @@ namespace TICTACTOE
         int beta = INT32_MAX;
 
         bool maximize = true;
-        int score = AlphaBeta(current_state, maximize, alpha, beta, 2);
+        int score = AlphaBeta(current_state, maximize, alpha, beta, 6);
         std::cerr << "Result: " << score << " " << next_states[index].toMessage() << std::endl;
 
         return next_states[index];

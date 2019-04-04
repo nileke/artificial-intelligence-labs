@@ -28,14 +28,14 @@ const std::string SIMPLE_TEXT[4] = {
 const std::string UNICODE_TEXT[4] = {
 		"― ", // CELL_EMPTY
 		"✗ ", // CELL_X
-		"𝑂 ", // CELL_O
+		"O ", // CELL_O
 		"  ", // CELL_INVALID
 };
 
 const std::string COLOR_TEXT[4] = {
 		"\u001B[30m― \u001B[0m", // CELL_EMPTY
 		"✗ ", // CELL_X
-		"𝑂 ", // CELL_O
+		"O ", // CELL_O
 		"  ", // CELL_INVALID
 };
 

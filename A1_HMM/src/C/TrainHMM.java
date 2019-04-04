@@ -34,7 +34,7 @@ public class TrainHMM {
 
 
         System.out.println(bw.toString());
-        System.out.println("1 " + "3 " + Arrays.toString(bw.getPi()[0]).replace("[", "")
+        System.out.println(bw.getPi().length + " " + + bw.getPi()[0].length + " " + Arrays.toString(bw.getPi()[0]).replace("[", "")
                         .replace("]", "")
                         .replace(",",""));
     }

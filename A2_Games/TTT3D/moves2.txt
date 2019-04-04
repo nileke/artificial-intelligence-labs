@@ -1,0 +1,77 @@
+{ 0,   1,   2,   3  }, // Row 1 Layer 1
+{ 4,   5,   6,   7  }, // Row 2 Layer 1
+{ 8,   9,   10,  11 }, // Row 3 Layer 1
+{ 12,  13,  14,  15 }, // Row 4 Layer 1
+{ 0,   4,   8,   12 }, // Col 1 Layer 1
+{ 1,   5,   9,   13 }, // Col 2 Layer 1
+{ 2,   6,   10,  14 }, // Col 3 Layer 1
+{ 3,   7,   11,  15 }, // Col 4 Layer 1
+{ 0,   5,   10,  15 }, // Dig 1 Layer 1
+{ 3,   6,   9,   12 }, // Dig 2 Layer 1
+{ 16,  17,  18,  19 }, // Row 1 Layer 2
+{ 20,  21,  22,  23 }, // Row 2 Layer 2
+{ 24,  25,  26,  27 }, // Row 3 Layer 2
+{ 28,  29,  30,  31 }, // Row 4 Layer 2
+{ 16,  20,  24,  28 }, // Col 1 Layer 2
+{ 17,  21,  25,  29 }, // Col 2 Layer 2
+{ 18,  22,  26,  30 }, // Col 3 Layer 2
+{ 19,  23,  27,  31 }, // Col 4 Layer 2
+{ 16,  21,  26,  31 }, // Dig 1 Layer 2
+{ 19,  22,  25,  28 }, // Dig 2 Layer 2
+{ 32,  33,  34,  35 }, // Row 1 Layer 3
+{ 36,  37,  38,  39 }, // Row 2 Layer 3
+{ 40,  41,  42,  43 }, // Row 3 Layer 3
+{ 44,  45,  46,  47 }, // Row 4 Layer 3
+{ 32,  36,  40,  44 }, // Col 1 Layer 3
+{ 33,  37,  41,  45 }, // Col 2 Layer 3
+{ 34,  38,  42,  46 }, // Col 3 Layer 3
+{ 35,  39,  43,  47 }, // Col 4 Layer 3
+{ 32,  37,  42,  47 }, // Dig 1 Layer 3
+{ 35,  38,  41,  44 }, // Dig 1 Layer 3
+{ 48,  49,  50,  51 }, // Row 1 Layer 4
+{ 52,  53,  54,  55 }, // Row 2 Layer 4
+{ 56,  57,  58,  59 }, // Row 3 Layer 4
+{ 60,  61,  62,  63 }, // Row 4 Layer 4
+{ 48,  52,  56,  60 }, // Col 1 Layer 4
+{ 49,  53,  57,  61 }, // Col 2 Layer 4
+{ 50,  54,  58,  62 }, // Col 3 Layer 4
+{ 51,  55,  59,  63 }, // Col 4 Layer 4
+{ 48,  53,  58,  63 }, // Dig 1 Layer 4
+{ 51,  54,  57,  60 }, // Dig 2 Layer 4
+{ 0,   16,  32,  48 }, // Hei 1
+{ 1,   17,  33,  49 }, // Hei 2
+{ 2,   18,  34,  50 }, // Hei 3
+{ 3,   19,  35,  51 }, // Hei 4
+{ 4,   20,  36,  52 }, // Hei 5
+{ 5,   21,  37,  53 }, // Hei 6
+{ 6,   22,  38,  54 }, // Hei 7
+{ 7,   23,  39,  55 }, // Hei 8
+{ 8,   24,  40,  56 }, // Hei 9
+{ 9,   25,  41,  57 }, // Hei 10
+{ 10,  26,  42,  58 }, // Hei 11
+{ 11,  27,  43,  59 }, // Hei 12
+{ 12,  28,  44,  60 }, // Hei 13
+{ 13,  29,  45,  61 }, // Hei 14
+{ 14,  30,  46,  62 }, // Hei 15
+{ 15,  31,  47,  63 }, // Hei 16
+{ 0,   17,  34,  51 }, // HyperDig 1 Row 1
+{ 3,   18,  33,  48 }, // HyperDig 2 Row 2
+{ 4,   21,  38,  55 }, // HyperDig 1 Row 2
+{ 7,   22,  37,  52 }, // HyperDig 2 Row 2
+{ 8,   25,  42,  59 }, // HyperDig 1 Row 3
+{ 11,  26,  41,  56 }, // HyperDig 2 Row 3
+{ 12,  29,  46,  63 }, // HyperDig 1 Row 4
+{ 15,  30,  45,  60 }, // HyperDig 2 Row 4
+{ 0,   21,  42,  63 }, // CrossHyperDig 1
+{ 3,   22,  41,  60 }, // CrossHyperDig 2
+{ 15,  26,  37,  48 }, // CrossHyperDig 3
+{ 12,  25,  38,  51 }, // CrossHyperDig 4
+{ 0,   20,  40,  60 }, // SideHyperDig 1 Col 1
+{ 12,  24,  36,  48 }, // SideHyperDig 2 Col 1
+{ 1,   21,  41,  61 }, // SideHyperDig 1 Col 2
+{ 13,  25,  37,  49 }, // SideHyperDig 2 Col 2
+{ 2,   22,  42,  62 }, // SideHyperDig 1 Col 3
+{ 14,  26,  38,  50 }, // SideHyperDig 2 Col 3
+{ 3,   23,  43,  63 }, // SideHyperDig 1 Col 4
+{ 15,  27,  39,  51 }, // SideHyperDig 2 Col 4
+};
